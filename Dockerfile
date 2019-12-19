@@ -40,47 +40,19 @@ RUN	 go get -u github.com/golang/dep/cmd/dep && dep ensure  && \
 ADD start.sh /go/src/github.com/lifei6671/mindoc
 ADD simsun.ttc /usr/share/fonts/win/
 
-FROM alpine:latest
-
-LABEL maintainer="longfei6671@163.com"
-
-RUN apk add --update && \
-    apk add --no-cache --upgrade \
-    tzdata \
-    mesa-gl \
-    python \
-    qt5-qtbase-x11 \
-    xdg-utils \
-    libxrender \
-    libxcomposite \
-    xz \
-    imagemagick \
-    imagemagick-dev \
-    msttcorefonts-installer \
-    fontconfig && \
-    update-ms-fonts && \
-    fc-cache -f
+FROM registry.cn-hangzhou.aliyuncs.com/mindoc/mindoc:v2.0-beta.2
 
 COPY --from=build /var/glibc.apk .
 COPY --from=build /var/glibc-bin.apk .
 COPY --from=build /etc/apk/keys/sgerrand.rsa.pub /etc/apk/keys/sgerrand.rsa.pub
-COPY --from=build /var/linux-installer.py .
 COPY --from=build /usr/share/fonts/win/simsun.ttc /usr/share/fonts/win/
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=build /go/src/github.com/lifei6671/mindoc /mindoc
 
 RUN  apk add glibc-bin.apk glibc.apk && \
     /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib && \
-    echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf && \
     rm -rf glibc.apk glibc-bin.apk /var/cache/apk/* && \
     chmod a+r /usr/share/fonts/win/simsun.ttc
-
-
-ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/opt/calibre/lib
-ENV PATH $PATH:/opt/calibre/bin
-
-RUN cat linux-installer.py | python -c "import sys; main=lambda x,y:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main(install_dir='/opt', isolated=True)" && \
-    rm -rf /tmp/* linux-installer.py
 
 WORKDIR /mindoc
 
