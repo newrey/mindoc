@@ -7,7 +7,7 @@
     <meta name="renderer" content="webkit" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="SmartWiki" />
-    <title>用户注册 - Powered by MinDoc</title>
+    <title>用户注册 - Powered by UDNT</title>
 
     <!-- Bootstrap -->
     <link href="{{cdncss "/static/bootstrap/css/bootstrap.min.css"}}" rel="stylesheet">

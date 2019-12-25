@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>文档比较 - Powered by MinDoc</title>
+    <title>文档比较 - Powered by UDNT</title>
     <link rel="shortcut icon" href="{{cdnimg "/favicon.ico"}}" />
     <link href="{{cdncss "/static/fonts/notosans.css"}}" rel='stylesheet' type='text/css' />
     <link type='text/css' rel='stylesheet' href="{{cdncss "/static/mergely/editor/lib/wicked-ui.css"}}" />

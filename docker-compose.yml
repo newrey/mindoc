@@ -1,19 +1,21 @@
-MinDoc_New:
-  image: registry.cn-hangzhou.aliyuncs.com/mindoc/mindoc:v2.0-beta.2
+minidoc:
+  # image: daocloud.io/newrey/mindoc:dev-ud-3dc4dda
+  build: .
   privileged: false
   restart: always
   ports:
     - 8181:8181
   volumes:
-    - /var/www/mindoc/database:/mindoc/database
-    - /var/www/mindoc/uploads:/mindoc/uploads
+    - /opt/minidoc/database:/mindoc/database
+    - /opt/minidoc/uploads:/mindoc/uploads
   environment:
     - MINDOC_RUN_MODE=prod
     - MINDOC_DB_ADAPTER=sqlite3
     - MINDOC_DB_DATABASE=./database/mindoc.db
     - MINDOC_CACHE=true
     - MINDOC_CACHE_PROVIDER=file
-    - MINDOC_ENABLE_EXPORT=false
+    - MINDOC_ENABLE_EXPORT=true
+    - MINDOC_EXPORT_PROCESS_NUM=2
     - MINDOC_BASE_URL=
     - MINDOC_CDN_IMG_URL=
     - MINDOC_CDN_CSS_URL=

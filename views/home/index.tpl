@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <title>{{.SITE_NAME}} - Powered by MinDoc</title>
+    <title>{{.SITE_NAME}} - Powered by UDNT</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta name="author" content="Minho" />
     <meta name="site" content="https://www.iminho.me" />
-    <meta name="keywords" content="MinDoc,文档在线管理系统,WIKI,wiki,wiki在线,文档在线管理,接口文档在线管理,接口文档管理">
-    <meta name="description" content="MinDoc文档在线管理系统 {{.site_description}}">
+    <meta name="keywords" content="UDNT,文档在线管理系统,WIKI,wiki,wiki在线,文档在线管理,接口文档在线管理,接口文档管理">
+    <meta name="description" content="UDNT文档在线管理系统 {{.site_description}}">
     <!-- Bootstrap -->
     <link href="{{cdncss "/static/bootstrap/css/bootstrap.min.css"}}" rel="stylesheet">
     <link href="{{cdncss "/static/font-awesome/css/font-awesome.min.css"}}" rel="stylesheet">
